@@ -2,25 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Minecraft Stats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Stats for Today</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Serif Text', serif;
+            background-color: #f5f5f5; /* Lighter gray for the main background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #d3d3d3; /* Light gray for the header */
+            padding: 20px;
+            text-align: center;
+            font-size: 2em; /* Bigger title font */
+            color: #333; /* Darker text color for contrast */
+        }
+        .stats {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .win {
+            color: green;
+            font-size: 1.5em; /* Bigger font for wins */
+        }
+        .lose {
+            color: red;
+            font-size: 1.5em; /* Bigger font for losses */
+        }
+        .draw {
+            color: yellow;
+            font-size: 1.5em; /* Bigger font for draws */
+        }
+        footer {
+            background-color: #d3d3d3; /* Same color as header */
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8em; /* Smaller footer font */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Minecraft Stats for Today</h1>
-    <form method="POST">
-        <label for="username">Enter Minecraft Username:</label>
-        <input type="text" id="username" name="username" required>
-        <button type="submit">Fetch Stats</button>
-    </form>
-
-    {% if error %}
-        <p style="color:red;">Error: {{ error }}</p>
-    {% endif %}
-
-    {% if stats %}
-        <h2>{{ stats.username }}'s stats</h2>
-        <p>Elo: {{ stats.total_elo_change }}</p>
-        <p>Record: {{ stats.won_matches_count }} W - {{ stats.loss_matches_count }} L ({{ stats.win_percentage }})</p>
-        <p>Draws: {{ stats.draw_count }}</p>
-    {% endif %}
+    <header>Minecraft Stats for Today</header>
+    <div class="stats">
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <p>Username: {{ stats.username }}</p>
+            <p class="win">Wins: {{ stats.won_matches_count }}</p>
+            <p class="lose">Losses: {{ stats.loss_matches_count }}</p>
+            <p class="draw">Draws: {{ stats.draw_count }}</p>
+            <p>Elo: {{ stats.total_elo_change }}</p>
+        {% endif %}
+    </div>
+    <footer>Made by qMaxLMAO</footer>
 </body>
 </html>
