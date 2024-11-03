@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Stats</title>
+</head>
+<body>
+    <h1>Minecraft Stats for Today</h1>
+    <form method="POST">
+        <label for="username">Enter Minecraft Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Fetch Stats</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+
+    {% if stats %}
+        <h2>{{ stats.username }}'s stats</h2>
+        <p>Elo: {{ stats.total_elo_change }}</p>
+        <p>Record: {{ stats.won_matches_count }} W - {{ stats.loss_matches_count }} L ({{ stats.win_percentage }})</p>
+        <p>Draws: {{ stats.draw_count }}</p>
+    {% endif %}
+</body>
+</html>
