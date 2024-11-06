@@ -1,9 +1,12 @@
+/* General Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'DM Serif Text', serif;
     background-color: #f2f2f2;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -17,11 +20,14 @@ h1 {
     font-size: 2.5em;
 }
 
+/* Centered Form Section */
 .username-section {
     text-align: center;
-    background-color: #d3d3d3;
-    padding: 10px;
-    margin-top: 15px;  /* Gap between title and input */
+    background-color: #e6e6e6;  /* Same as stats background */
+    padding: 15px;
+    margin: 20px auto; 
+    border-radius: 10px;
+    width: 60%;
     font-size: 1.2em;
     color: #333;
 }
@@ -51,19 +57,25 @@ button:hover {
     background-color: #333;
 }
 
+/* Stats Section */
 .stats {
     text-align: center;
-    margin-top: 30px;
+    background-color: #e6e6e6;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
     font-size: 1.3em;
 }
 
+/* Footer Styling */
 footer {
     background-color: #d3d3d3;
     text-align: center;
     padding: 10px;
     font-size: 0.9em;
     color: #333;
-    margin-top: 30px;
+    margin-top: auto;
 }
 
 footer p {
