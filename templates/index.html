@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Stats for Today</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <style>
+        /* General styles */
         body {
             font-family: 'DM Serif Text', serif;
             background-color: #f5f5f5;
@@ -12,9 +15,10 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Changed this from center to flex-start */
+            align-items: flex-start; /* Align content to the top */
             height: 100vh;
             flex-direction: column;
+            overflow: hidden; /* Disable scrolling */
         }
         header {
             background-color: #b0b0b0;
@@ -23,6 +27,17 @@
             padding: 20px;
             color: white;
             font-size: 2.5em;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px; /* Add a gap between header and content */
+            width: 100%;
         }
         .stats {
             background-color: #dcdcdc;
@@ -31,7 +46,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 80%;
             max-width: 600px;
-            margin-top: 30px;
             text-align: center;
             font-size: 1.5em;
         }
@@ -64,29 +78,53 @@
             color: white;
             text-decoration: none;
         }
+        /* Centering form and button */
+        form {
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #b0b0b0;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #9a9a9a;
+        }
     </style>
 </head>
 <body>
     <header>
         Minecraft Stats for Today
     </header>
-    <div class="stats">
+    <div class="content">
         <form method="POST">
             <label for="username">Enter Minecraft Username:</label><br>
             <input type="text" id="username" name="username" required>
             <button type="submit">Get Stats</button>
         </form>
-        {% if stats %}
-        <h2>{{ stats.username }}'s Stats for Today</h2>
-        <p>Elo: <strong>{{ stats.total_elo_change }}</strong></p>
-        <p>Record: <span class="win">{{ stats.won_matches_count }} W</span> - 
-            <span class="loss">{{ stats.loss_matches_count }} L</span> 
-            ({{ stats.win_percentage }})
-        </p>
-        <p>Draws: <span class="draw">{{ stats.draw_count }} D</span></p>
-        {% elif error %}
-        <p style="color: red;">Error: {{ error }}</p>
-        {% endif %}
+        <div class="stats">
+            {% if stats %}
+            <h2>{{ stats.username }}'s Stats for Today</h2>
+            <p>Elo: <strong>{{ stats.total_elo_change }}</strong></p>
+            <p>Record: <span class="win">{{ stats.won_matches_count }} W</span> - 
+                <span class="loss">{{ stats.loss_matches_count }} L</span> 
+                ({{ stats.win_percentage }})
+            </p>
+            <p>Draws: <span class="draw">{{ stats.draw_count }} D</span></p>
+            {% elif error %}
+            <p style="color: red;">Error: {{ error }}</p>
+            {% endif %}
+        </div>
     </div>
     <footer>
         <p>© 2024 MCSR Ranked Stats Today. All rights reserved.</p>
