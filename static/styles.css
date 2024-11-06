@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Serif Text', serif;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+
+header {
+    background-color: #d3d3d3;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.username-section {
+    text-align: center;
+    background-color: #d3d3d3;
+    padding: 10px;
+    margin-top: 15px;  /* Gap between title and input */
+    font-size: 1.2em;
+    color: #333;
+}
+
+.username-section label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 5px;
+    font-size: 1em;
+}
+
+button {
+    padding: 8px 15px;
+    font-size: 1em;
+    background-color: #5a5a5a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.stats {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.3em;
+}
+
+footer {
+    background-color: #d3d3d3;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #333;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
